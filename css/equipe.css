@@ -1,0 +1,48 @@
+.eq {
+    background-color: #231F20;
+    border-radius: .6em;
+    padding: 1em;
+    width:13em
+}
+
+.equipe {
+    width: 55%;
+    margin-top: 2em;
+}
+
+.titulo{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.equipe1,
+.equipe2 {
+    display: flex;
+    justify-content: space-around;
+    padding: .5em;
+}
+
+.github {
+    width: 1.5em;
+}
+
+.linkedin {
+    width: 1.5em;
+}
+
+.avatar {
+    width: 9em;
+    margin-left: 1.07em;
+}
+
+.info-equipe {
+    margin-top: .6em;
+    display:flex;
+   
+}
+
+.contatos {
+    font-size: .6em;
+    padding-top: .3em;
+    padding-left: .4em;
+}
