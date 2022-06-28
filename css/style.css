@@ -29,7 +29,7 @@ h1 {
 }
 
 body {
-    background-image: url(/img/store_home_share.jpg);
+    background-image: url(../img/store_home_share.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
