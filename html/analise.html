@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/collapse.css">
+    <link rel="icon" type="image/x-icon" href="../img/Steam_Logo.png">
+
+    <title>Steam | Database</title>
+</head>
+
+<body>
+    <header>
+        <img class="steam-logo" src="../img/steam-logo-1.png" alt="">
+        <p class="dashboard">Dashboard</p>
+    </header>
+    <main>
+        <section class="menu">
+            <ul>
+                <li><a class="a-menu" href="./sobre.html">Sobre a Steam</a></li>
+                <li><a class="a-menu" href="./analise.html">Analise de Dados</a></li>
+                <li><a class="a-menu" href="./equipe.html">Equipe</a></li>
+                <li><a class="a-menu" href="./projeto.html">Sobre o Projeto</a></li>
+            </ul>
+        </section>
+
+
+        <section class="analise-dados">
+         
+            <p class="title">Sobre a steam</p>
+            <button type="button" class="collapsible">Quantos jogos tem a Steam ?</button>
+            <div class="content">
+                <p class="resposta1">Resposta : 27.053<br></p><br>
+                <p class="resposta"> SELECT COUNT(*) AS Total_de_Jogos<br>
+                    FROM steam<br><br>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Quantos jogos gratuitos possuem na Steam ?</button>
+            <div class="content">
+                <p class="resposta1">Total de Jogos Gratuitos: 2.560<br></p>
+                <p class="resposta1">Total de Jogos Pagos: 24.493<br></p><br>
+                <p class="resposta">SELECT count(*) AS Jogos_Gratuitos<br>
+                    FROM STEAM<br>
+                    WHERE PRICE = 0
+                    <br><br>
+                <p class="resposta">SELECT count(*) AS Jogos_Pagos<br>
+                    FROM STEAM<br>
+                    WHERE PRICE > 0
+                    <br><br>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Qual mês mais se lança jogo na Steam ?</button>
+            <div class="content">
+                <p class="resposta1">Outubro - 286 jogos <br>
+                    Novembro - 221 jogos<br>
+                    Agosto - 217 jogos <br>
+                    Setembro - 208 jogos<br>
+                    Julho - 196 jogos <br>
+                    </p><br>
+                <p class="resposta"> SELECT COUNT(name) as qtd_jogos,
+                    month(release_date) as release_month<br>
+                    FROM steam <br>
+                    GROUP BY month(release_date)<br>
+                    ORDER BY qtd_jogos desc
+                    <br><br>
+                </p>
+            </div>
+
+            <p class="title">Sobre os jogos</p>
+            <button type="button" class="collapsible">Quais os cincos jogos mais jogados ?</button>
+            <div class="content">
+                <p class="resposta1">1 - The Abbey of Crime Extensum<br>
+                    2 - The Banner Saga: Factions<br>
+                    3 - The Secret of Tremendous Corporation<br>
+                    4 - PRICE<br>
+                    5 - Boundless<br>
+                    <br></p>
+                <p class="resposta"> SELECT name, average_playtime <br>
+                    FROM steam.steam <br>
+                    ORDER BY average_playtime DESC;
+                    
+                </p><br>
+            </div>
+            <button type="button" class="collapsible">Qual jogo tem a pior avaliação ?</button>
+            <div class="content">
+                <p class="resposta1">1 - Counter-Strike: Global Offensive <br>
+                    2 - Dota 2 <br>
+                    3 - DayZ <br>
+                    4 - PAYDAY 2<br>
+                    5 - Rust <br><br>
+                    
+                <p class="resposta"> SELECT name, negative_ratings<br>
+                    FROM steam<br>
+                    ORDER BY negative_ratings DESC<br>
+                    LIMIT 5;<br><br>
+                    
+                </p>
+            </div>
+            <button type="button" class="collapsible">Quais jogos a partir de 2010 que são multiplayers ?</button>
+            <div class="content">
+                <p class="resposta1">Jogos multiplayers - 2.729<br></p><br>
+                <p class="resposta"> SELECT steam.name, steam.release_date, steamspy_tag_data.multiplayer<br>
+                    FROM steam<br>
+                    INNER JOIN steamspy_tag_data<br>
+                    ON steam.appid = steamspy_tag_data.appid<br>
+                    WHERE release_date between 2010 and 2020 And multiplayer > 0<br>
+                    ORDER BY release_date desc;<br><br>
+                    
+                </p>
+            </div>
+            <button type="button" class="collapsible">Quais jogos não possuem website? </button>
+            <div class="content">
+                <p class="resposta1">Jogos que não possuem website = 194<br></p><br>
+                <p class="resposta">SELECT steam.name as Jogos_sem_Website, steam_support_info.website<br>
+                    FROM steam<br>
+                    LEFT JOIN steam_support_info<br>
+                    ON steam.appid = steam_support_info.steam_appid<br>
+                    WHERE steam_support_info.website is null;
+                    <br><br>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Quantas desenvolvedoras de jogos possuem suporte via email comparando com o número total de desenvolvedoras ?   </button>
+            <div class="content">
+                <p class="resposta1">Desenvolvedoras com suporte = 416<br></p><br>
+                <p class="resposta">SELECT<br> (SELECT count(steam.developer)
+                    from steam)  as desenvolvedoras_total, <br>count(steam.developer) as desenvolvedoras_com_suporte<br>
+                    FROM steam<br>
+                    INNER JOIN steam_support_info<br>
+                    ON steam.appid = steam_support_info.steam_appid<br>
+                    WHERE steam_support_info.support_email;
+                    
+                    <br><br>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Quantos jogos exigem +18 anos? </button>
+            <div class="content">
+                <p class="resposta1">Jogos +18 = 308<br></p><br>
+                <p class="resposta">SELECT count(*) AS Total_de_jogos<br>
+                    FROM steam<br>
+                    WHERE required_age >= '18';
+                    
+                    <br><br>
+                </p>
+            </div>
+
+            <p class="title">Plataformas</p>
+            <button type="button" class="collapsible">Quais jogos rodam na plataforma linux e windows ?</button>
+            <div class="content">
+                <p class="resposta1">Linux - 5.219<br>
+                    Windows - 27.048<br></p><br>
+                <p class="resposta"> SELECT
+                    COUNT(platforms)<br>
+                    FROM steam<br>
+                    WHERE platforms like('%linux') ;
+                    <br><br>
+                    SELECT
+                    COUNT(platforms)<br>
+                    FROM steam<br>
+                    WHERE platforms like('%windows') ;
+                    <br><br>
+                </p>
+            </div>
+            <button type="button" class="collapsible">Qual seria o resultado das soma dos preços da desenvolvedora Valve para as plataformas MAC </button>
+            <div class="content">
+                <p class="resposta1">Mac = 119.42 <br>
+                    Windons = 119.42<br>
+                    Linux =  112.23
+                    <br></p><br>
+                <p class="resposta">SELECT developer, platforms, SUM(price)<br>
+                    FROM steam<br>
+                    WHERE developer='Valve' AND platforms like '%mac%';
+                    
+                    <br><br>
+                </p>
+            </div>
+
+        </section>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
+
+    </main>
+
+<footer class="rodape">
+    <p>Projeto Final - Módulo 3 | Resilia - T17 - Squad 9</p>
+</footer>
+</body>
+
+</html>
