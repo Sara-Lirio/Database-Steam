@@ -28,12 +28,20 @@
 
   - [x] HTML5
   - [x] CSS3
+  - [x] JavaScript
   - [x] MySQL
   - [x] Git
   - [x] KanBan
   - [x] Trello
   - [x] Canva
- 
+
+<img src="./img/quadro1.png">
+<img src="./img/quadro2.png">
+<img src="./img/quadro3.png"> 
+
+<h2 id="modelagem">Modelagem do Banco - MySQL</h2>
+<img src="./img/modelagem.png">
+
 
 <h2 id="grupo">Squad 🎮 </h2>
 
