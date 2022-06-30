@@ -1,21 +1,26 @@
-# Steam - Database
+# ![image](https://user-images.githubusercontent.com/98292860/176754110-9046a117-4add-496c-b7e1-df6c8b62618a.png)
 
 <div id="inicio" align=center>
-  <a href="#sobre">Sobre</a>&nbsp;&nbsp;
-  <a href="#andamento">Andamento</a>&nbsp;&nbsp;
-  <a href="#linguagens">Softwares & Ferramentas utilizadas</a>&nbsp;&nbsp;
-  <a href="#grupo">Autores</a> &nbsp;&nbsp;
+  <a href="#sobre">Sobre |</a>&nbsp;&nbsp;
+  <a href="#andamento"> Andamento  |</a>&nbsp;&nbsp;
+  <a href="#linguagens">Softwares & Ferramentas utilizadas  |</a>&nbsp;&nbsp;
+  <a href="#grupo">Autores  |</a> &nbsp;&nbsp;
      <a href="#contribuir">Como contribuir</a>&nbsp;&nbsp;
 </div>
+<br>
+O Steam é uma plataforma de distribuição de jogos digitais para computadores (Windows, macOS e Linux). Foi uma das primeiras de seu gênero a ser lançada e permite que consumidores comprem ou ativem jogos dentro do serviço. Possui um programa cliente, que deve ser instalado no computador, para que os jogos possam ser executados, mantendo tudo atualizado. Além de loja digital, funciona também como rede social.
 
-<h2 id="sobre">Sobre 🔎</h2>
+![image](https://user-images.githubusercontent.com/98292860/176756780-5d520c19-a85c-4d3f-9673-2d4aab6964d3.png)
+
+
+<h2 id="sobre">Sobre o projeto🔎</h2>
   <p> A proposta do projeto era montar um dashboard do banco de dados escolhido pelo grupo. Dividido em duas etapas, os objetivos principais eram: </p>
   
- - Estruturar o esquema do banco de dados: A partir da avaliação do conjunto de dados fornecidos, modelar as tabelas do banco. Note que não é necessário mapear todas as colunas de todas as tabelas. Mantenha sua implementação simples construindo um modelo que atende às perguntas elaboradas pelo grupo
- - Realizar carga no banco: Com base no esquema desenhado e criado, subir os dados presentes nos arquivos para o banco de dados a fim de verificar o funcionamento da solução encontrada.
-- Ideação/Brainstorm sobre perguntas que podem ser respondidas pelos dados: Analise o conjunto de dados selecionado para que as perguntas sejam pertinentes. Neste primeiro momento, dê asas a imaginação. As perguntas geradas nesta etapa impactam diretamente as demais desta Sprint.
-- Criar visualizações dos dados com base nas perguntas elaboradas na sprint anterior (aqui vocês podem usar planilhas (Excel / Google), Metabase, Tableau, Power Bi, etc)
- - Montar uma apresentação a partir das perguntas e análise exploratória feita em cima do conjunto de dados selecionado
+  🕹️ Estruturar o esquema do banco de dados: A partir da avaliação do conjunto de dados fornecidos, modelar as tabelas do banco. Note que não é necessário mapear todas as colunas de todas as tabelas. Mantenha sua implementação simples construindo um modelo que atende às perguntas elaboradas pelo grupo<br>
+  🕹️ Realizar carga no banco: Com base no esquema desenhado e criado, subir os dados presentes nos arquivos para o banco de dados a fim de verificar o funcionamento da solução encontrada.<br>
+  🕹️ Ideação/Brainstorm sobre perguntas que podem ser respondidas pelos dados: Analise o conjunto de dados selecionado para que as perguntas sejam pertinentes. Neste primeiro momento, dê asas a imaginação. As perguntas geradas nesta etapa impactam diretamente as demais desta Sprint.<br>
+  🕹️ Criar visualizações dos dados com base nas perguntas elaboradas na sprint anterior (aqui vocês podem usar planilhas (Excel / Google), Metabase, Tableau, Power Bi, etc)<br>
+  🕹️ Montar uma apresentação a partir das perguntas e análise exploratória feita em cima do conjunto de dados selecionado
 
 
 <br>
@@ -23,6 +28,10 @@
 <h2 id="andamento">Andamento do projeto 📈</h2>
 
   ![Badge](https://img.shields.io/website?down_message=em%20andamento&label=STATUS&style=for-the-badge&up_message=conclu%C3%ADdo&url=https%3A%2F%2Fytallobruno.github.io%2FProjetoFinalModulo2%2F)
+  
+      Acesse nossa Page : https://sara-lirio.github.io/Database-Steam/
+
+
 
 <h2 id="linguagens">Softwares & Ferramentas utilizadas nesse projeto 📚</h2>
 
@@ -41,7 +50,6 @@
 
 <h2 id="modelagem">Modelagem do Banco - MySQL</h2>
 <img src="./img/modelagem.png">
-
 
 
 <h2 id="grupo">Squad 🎮 </h2>
