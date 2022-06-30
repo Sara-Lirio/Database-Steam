@@ -35,6 +35,7 @@
   - [x] Canva
  
 
+
 <h2 id="grupo">Squad 🎮 </h2>
 
 <p> Esse projeto foi pensado e executado por: </p>
