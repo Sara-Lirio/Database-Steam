@@ -76,7 +76,7 @@
                     4 - PRICE<br>
                     5 - Boundless<br>
                     <br></p>
-                    <img src="../img/gráficos/Gráfico 3 - Os 5 jogos mais populares da Steam.png" alt="">
+                    <img src="../img/gráficos/Gráfico 3 - Os 5 jogos mais populares da Steam (10).png" alt="">
                 <p class="resposta"> SELECT name, average_playtime <br>
                     FROM steam.steam <br>
                     ORDER BY average_playtime DESC;
@@ -90,7 +90,7 @@
                     3 - DayZ <br>
                     4 - PAYDAY 2<br>
                     5 - Rust <br><br>
-                    <img src="../img/gráficos/Gráfico 4 - Os 5 jogos com pior avaliação na Steam.png" alt="">
+                    <img src="../img/gráficos/Gráfico 4 - Os 5 jogos com pior avaliação na Steam (7).png" alt="">
                 <p class="resposta"> SELECT name, negative_ratings<br>
                     FROM steam<br>
                     ORDER BY negative_ratings DESC<br>
@@ -101,7 +101,7 @@
             <button type="button" class="collapsible">Quantos jogos a partir de 2010 que são multiplayers ?</button>
             <div class="content">
                 <p class="resposta1">Jogos multiplayers - 2.729<br></p><br>
-                <img src="../img/gráficos/Gráfico 5 - Quantidade de jogos multiplayer.png" alt="">
+                <img src="../img/gráficos/Gráfico 5 - Quantidade de jogos multiplayer (3).png" alt="">
                 <p class="resposta"> SELECT steam.name, steam.release_date, steamspy_tag_data.multiplayer<br>
                     FROM steam<br>
                     INNER JOIN steamspy_tag_data<br>
@@ -114,7 +114,7 @@
             <button type="button" class="collapsible">Quantos jogos não possuem website? </button>
             <div class="content">
                 <p class="resposta1">Jogos que não possuem website = 194<br></p><br>
-                <img src="../img/gráficos/Gráfico 6 - Quantidade de jogos que possuem website.png" alt="">
+                <img src="../img/gráficos/Gráfico 6 - Quantidade de jogos que possuem website (1).png" alt="">
                 <p class="resposta">SELECT steam.name as Jogos_sem_Website, steam_support_info.website<br>
                     FROM steam<br>
                     LEFT JOIN steam_support_info<br>
@@ -126,6 +126,7 @@
             <button type="button" class="collapsible">Quantas desenvolvedoras de jogos possuem suporte via email comparando com o número total de desenvolvedoras ?   </button>
             <div class="content">
                 <p class="resposta1">Desenvolvedoras com suporte = 416<br></p><br>
+                <img src="../img/gráficos/Gráfico 7 - Suporte via e-mail para os jogos (4).png" alt="">
                 <p class="resposta">SELECT<br> (SELECT count(steam.developer)
                     from steam)  as desenvolvedoras_total, <br>count(steam.developer) as desenvolvedoras_com_suporte<br>
                     FROM steam<br>
@@ -138,20 +139,32 @@
             </div>
             <button type="button" class="collapsible">Quantos jogos exigem +18 anos? </button>
             <div class="content">
-                <p class="resposta1">Jogos +18 = 308<br></p><br>
+                <p class="resposta1">Jogos - classificação +18 = 308<br>
+                Jogos - classificação 16 = 192<br>
+            Jogos - classificação 12 = 73</p><br>
+                <img src="../img/gráficos/Gráfico 8 - Quantidade de jogos por classificação de idade (2).png" alt="">
                 <p class="resposta">SELECT count(*) AS Total_de_jogos<br>
                     FROM steam<br>
                     WHERE required_age >= '18';
-                    
+                    <br><br>
+                    SELECT count(*) AS Total_de_jogos<br>
+                    FROM steam<br>
+                    WHERE required_age = '16';
+                    <br><br>
+                    SELECT count(*) AS Total_de_jogos<br>
+                    FROM steam<br>
+                    WHERE required_age = '12';
                     <br><br>
                 </p>
             </div>
 
             <p class="title">Plataformas</p>
-            <button type="button" class="collapsible">Quantos jogos rodam na plataforma linux e windows ?</button>
+            <button type="button" class="collapsible">Quantos jogos rodam na plataforma linux, windows e mac ?</button>
             <div class="content">
                 <p class="resposta1">Linux - 5.219<br>
-                    Windows - 27.048<br></p><br>
+                    Windows - 27.048<br>
+                    Mac - 3.437<br></p>
+                    <img src="../img/gráficos/Gráfico 9 - Quantidade de jogos por sistema operacional suportado (6).png" alt="">
                 <p class="resposta"> SELECT
                     COUNT(platforms)<br>
                     FROM steam<br>
@@ -162,18 +175,35 @@
                     FROM steam<br>
                     WHERE platforms like('%windows') ;
                     <br><br>
+                    SELECT
+                    COUNT(platforms)<br>
+                    FROM steam<br>
+                    WHERE platforms like('%mac') ;
+                    <br><br>
                 </p>
             </div>
-            <button type="button" class="collapsible">Qual seria o resultado das soma dos preços da desenvolvedora Valve para as plataformas MAC </button>
+            <button type="button" class="collapsible">Qual seria o resultado das soma dos preços por desenvolvedoras. </button>
             <div class="content">
-                <p class="resposta1">Mac = 119.42 <br>
-                    Windons = 119.42<br>
-                    Linux =  112.23
-                    <br></p><br>
+                <img src="../img/gráficos/Gráfico 10 - Soma do preço de todos os jogos por desenvolvedora (1).png" alt="">
                 <p class="resposta">SELECT developer, platforms, SUM(price)<br>
                     FROM steam<br>
-                    WHERE developer='Valve' AND platforms like '%mac%';
-                    
+                    WHERE developer='Valve';
+                    <br><br>
+                    SELECT developer, platforms, SUM(price)<br>
+                    FROM steam<br>
+                    WHERE developer='Gearbox Software';
+                    <br><br>
+                    SELECT developer, platforms, SUM(price)<br>
+                    FROM steam<br>
+                    WHERE developer='Egosoft';
+                    <br><br>
+                    SELECT developer, platforms, SUM(price)<br>
+                    FROM steam<br>
+                    WHERE developer='MumboJumbo';
+                    <br><br>
+                    SELECT developer, platforms, SUM(price)<br>
+                    FROM steam<br>
+                    WHERE developer='HeR Interactive';
                     <br><br>
                 </p>
             </div>
