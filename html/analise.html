@@ -42,6 +42,7 @@
             <div class="content">
                 <p class="resposta1">Total de Jogos Gratuitos: 2.560<br></p>
                 <p class="resposta1">Total de Jogos Pagos: 24.493<br></p><br>
+                <img src="../img/gráficos/_Gráfico 1 - Jogos da Steam_ pagos versus gratuitos (4).png" alt="">
                 <p class="resposta">SELECT count(*) AS Jogos_Gratuitos<br>
                     FROM STEAM<br>
                     WHERE PRICE = 0
@@ -54,11 +55,8 @@
             </div>
             <button type="button" class="collapsible">Qual mês mais se lança jogo na Steam ?</button>
             <div class="content">
-                <p class="resposta1">Outubro - 286 jogos <br>
-                    Novembro - 221 jogos<br>
-                    Agosto - 217 jogos <br>
-                    Setembro - 208 jogos<br>
-                    Julho - 196 jogos <br>
+                <p class="resposta1">Mês que mais lança : Março - 2.582 jogos <br>
+                 <img src="../img/gráficos/Gráfico 2 - Quantidade de jogos lançados por mês ao longo dos anos (7).png" alt="">
                     </p><br>
                 <p class="resposta"> SELECT COUNT(name) as qtd_jogos,
                     month(release_date) as release_month<br>
@@ -78,20 +76,21 @@
                     4 - PRICE<br>
                     5 - Boundless<br>
                     <br></p>
+                    <img src="../img/gráficos/Gráfico 3 - Os 5 jogos mais populares da Steam.png" alt="">
                 <p class="resposta"> SELECT name, average_playtime <br>
                     FROM steam.steam <br>
                     ORDER BY average_playtime DESC;
                     
                 </p><br>
             </div>
-            <button type="button" class="collapsible">Qual jogo tem a pior avaliação ?</button>
+            <button type="button" class="collapsible">Quais jogos tem a pior avaliação ?</button>
             <div class="content">
                 <p class="resposta1">1 - Counter-Strike: Global Offensive <br>
                     2 - Dota 2 <br>
                     3 - DayZ <br>
                     4 - PAYDAY 2<br>
                     5 - Rust <br><br>
-                    
+                    <img src="../img/gráficos/Gráfico 4 - Os 5 jogos com pior avaliação na Steam.png" alt="">
                 <p class="resposta"> SELECT name, negative_ratings<br>
                     FROM steam<br>
                     ORDER BY negative_ratings DESC<br>
@@ -99,9 +98,10 @@
                     
                 </p>
             </div>
-            <button type="button" class="collapsible">Quais jogos a partir de 2010 que são multiplayers ?</button>
+            <button type="button" class="collapsible">Quantos jogos a partir de 2010 que são multiplayers ?</button>
             <div class="content">
                 <p class="resposta1">Jogos multiplayers - 2.729<br></p><br>
+                <img src="../img/gráficos/Gráfico 5 - Quantidade de jogos multiplayer.png" alt="">
                 <p class="resposta"> SELECT steam.name, steam.release_date, steamspy_tag_data.multiplayer<br>
                     FROM steam<br>
                     INNER JOIN steamspy_tag_data<br>
@@ -111,9 +111,10 @@
                     
                 </p>
             </div>
-            <button type="button" class="collapsible">Quais jogos não possuem website? </button>
+            <button type="button" class="collapsible">Quantos jogos não possuem website? </button>
             <div class="content">
                 <p class="resposta1">Jogos que não possuem website = 194<br></p><br>
+                <img src="../img/gráficos/Gráfico 6 - Quantidade de jogos que possuem website.png" alt="">
                 <p class="resposta">SELECT steam.name as Jogos_sem_Website, steam_support_info.website<br>
                     FROM steam<br>
                     LEFT JOIN steam_support_info<br>
@@ -147,7 +148,7 @@
             </div>
 
             <p class="title">Plataformas</p>
-            <button type="button" class="collapsible">Quais jogos rodam na plataforma linux e windows ?</button>
+            <button type="button" class="collapsible">Quantos jogos rodam na plataforma linux e windows ?</button>
             <div class="content">
                 <p class="resposta1">Linux - 5.219<br>
                     Windows - 27.048<br></p><br>
