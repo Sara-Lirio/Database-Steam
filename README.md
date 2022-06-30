@@ -10,7 +10,7 @@
 <br>
 O Steam é uma plataforma de distribuição de jogos digitais para computadores (Windows, macOS e Linux). Foi uma das primeiras de seu gênero a ser lançada e permite que consumidores comprem ou ativem jogos dentro do serviço. Possui um programa cliente, que deve ser instalado no computador, para que os jogos possam ser executados, mantendo tudo atualizado. Além de loja digital, funciona também como rede social.
 <br> 
-<br> 
+
 ![image](/img/printhome.png)
 <br>
 
